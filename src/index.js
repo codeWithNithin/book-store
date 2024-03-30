@@ -3,11 +3,43 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import BookDetail from './components/BookDetail';
+import About from './Pages/About';
+import Cart from './Pages/Cart';
+import AppStore from './Context/AppStore';
+import CheckoutPage from './Pages/CheckoutPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const appRoutes = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: '/books/:id',
+    element: <BookDetail />,
+  },
+  {
+    path: '/about',
+    element: <About />,
+  },
+  {
+    path: '/cart',
+    element: <Cart />,
+  },
+  {
+    path: '/checkout',
+    element: <CheckoutPage />,
+  },
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <AppStore>
+      <RouterProvider router={appRoutes}></RouterProvider>
+    </AppStore>
   </React.StrictMode>
 );
 
