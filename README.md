@@ -4,6 +4,10 @@
 
 In the project directory, you can run:
 
+### `npm i`
+
+To install all the packages, if node_modules is not present
+
 ### `npm start`
 
 Runs the app in the development mode.\
